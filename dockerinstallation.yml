@@ -4,9 +4,9 @@
     tasks:
       - name: Set up the repository
         shell: | 
-                 sudo yum install -y yum-utils
+                 yum install -y yum-utils
                  yum-config-manager \
                  --add-repo \
                  https://download.docker.com/linux/centos/docker-ce.repo
       - name: Install Docker Engine
-        shell: yum install docker-ce docker-ce-cli containerd.io
+        shell: "yum install docker-ce docker-ce-cli containerd.io"
