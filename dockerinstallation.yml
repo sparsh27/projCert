@@ -11,4 +11,4 @@
                  --add-repo \
                  https://download.docker.com/linux/centos/docker-ce.repo
       - name: Install Docker Engine
-        shell: "yum install docker-ce docker-ce-cli containerd.io"
+        shell: "yum install -y docker-ce docker-ce-cli containerd.io"
