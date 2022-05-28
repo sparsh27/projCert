@@ -1,0 +1,17 @@
+---
+  - name: Install Docker on the Server
+    hosts: 35.208.19.30
+    become: yes
+    become_user: root
+    tasks:
+      - name: Set up the repository
+        shell: | 
+                 yum install -y yum-utils
+                 yum-config-manager \
+                 --add-repo \
+                 https://download.docker.com/linux/centos/docker-ce.repo
+      - name: Install Docker Engine
+        shell: "yum install -y docker-ce docker-ce-cli containerd.io"
+        
+      - name: Running the application
+        shell: "docker build -t test Dockerfile && docker run test"
