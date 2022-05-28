@@ -17,7 +17,7 @@
         shell: "cd /home/stuti && git clone https://github.com/sparsh27/projCert.git"
         
       - name: Building Image
-        shell: "docker build -t test ."
+        shell: "docker build -t test /home/stuti/projCert/Dockerfile"
         
       - name: Running the container
         shell: "docker run test"
