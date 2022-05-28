@@ -13,6 +13,9 @@
       - name: Install Docker Engine
         shell: "yum install -y docker-ce docker-ce-cli containerd.io"
         
+      - name: Cloning the repo
+        shell: "cd /home/stuti && git clone https://github.com/sparsh27/projCert.git"
+        
       - name: Building Image
         shell: "docker build -t test ."
         
