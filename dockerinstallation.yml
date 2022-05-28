@@ -13,5 +13,8 @@
       - name: Install Docker Engine
         shell: "yum install -y docker-ce docker-ce-cli containerd.io"
         
-      - name: Running the application
-        shell: "docker build -t test Dockerfile && docker run test"
+      - name: Building Image
+        shell: "docker build -t test ."
+        
+      - name: Running the container
+        shell: "docker run test"
