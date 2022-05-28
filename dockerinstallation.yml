@@ -20,4 +20,4 @@
         shell: "docker build -t test /home/stuti/projCert/"
         
       - name: Running the container
-        shell: "docker run test"
+        shell: "docker run -itd -p 8087:80 test"
