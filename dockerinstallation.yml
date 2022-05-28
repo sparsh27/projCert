@@ -1,6 +1,6 @@
 ---
   - name: Install Docker on the Server
-    hosts: 10.128.0.3
+    hosts: 35.208.19.30
     become: yes
     become_user: root
     tasks:
