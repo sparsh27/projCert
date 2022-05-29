@@ -44,7 +44,7 @@
             var: run_container.stdout[0]
             
         - debug:
-            var: "{{ run_conatiner }}.stdout_lines['NAMES']
+            var: "{{ run_conatiner }}.stdout_lines['NAMES']"
           
 #         - name: Verifying whether container is running or not
 #           fail:
