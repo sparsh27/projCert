@@ -4,6 +4,12 @@
     become: yes
     become_user: root
     tasks:
+      - name: Installing puppet agent
+        shell: "sudo yum install puppet-agent"
+        
+      - name: Configure Puppet Agent
+        shell: "source /etc/profile.d/puppet-agent.sh && export PATH=/opt/puppetlabs/bin:$PATH"
+         
       - name: Set up the repository
         shell: | 
                  yum install -y yum-utils
@@ -20,4 +26,18 @@
         shell: "docker build -t test /home/stuti/projCert/"
         
       - name: Running the container
-        shell: "docker run -itd -p 8000:80 test"
+        block:
+        
+        - name: Running the container
+          shell: "docker run -itd -p 8000:80 test"
+          register: run_container
+          
+        - debug:
+             var: "{{ run_container }}.stdout"
+             
+        
+          
+        - name: Verifying whether container is running or not
+          fail:
+            msg: Docker container didn't ran successfully
+          when: 
