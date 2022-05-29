@@ -30,7 +30,7 @@
         block:
         
         - name: Running the container
-          shell: "docker run -itd -p 8000:80 test"
+          shell: "docker run -itd -p 8000:80 test --name FirstProject "
           register: run_container
              
         - name: Running the container
@@ -40,7 +40,7 @@
         - debug:
             var: run_container.stdout[0]
           
-        - name: Verifying whether container is running or not
-          fail:
-            msg: Docker container didn't ran successfully
-          when: "run_container ==  run_container1 "
+#         - name: Verifying whether container is running or not
+#           fail:
+#             msg: Docker container didn't ran successfully
+#           when: " "
