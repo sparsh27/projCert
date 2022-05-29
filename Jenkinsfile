@@ -1,6 +1,7 @@
 node('slave-01'){
         stage('Installing Puppet Agent') {
-                sh 'sudo yum install puppet-agent'
+                sh 'sudo su' 
+                sh 'yum install puppet-agent'
             }
        
         stage('Configure Puppet agent'){
