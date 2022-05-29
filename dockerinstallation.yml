@@ -42,11 +42,13 @@
           
         - debug:
             var: run_container.stdout[0]
-            
-        - debug:
-            var: run_container.stdout_lines['NAMES']
           
-#         - name: Verifying whether container is running or not
-#           fail:
-#             msg: Docker container didn't ran successfully
-#           when: " "
+        - name: Verifying whether container is running or not
+          fail:
+            msg: Docker container didn't ran successfully
+          when: " run_container.stdout_lines == ' ' "
+          
+          
+        rescue:
+        - name: Deleting the container
+          shell: "docker stop FirstProject && docker rm FirstProject"
