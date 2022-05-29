@@ -30,7 +30,7 @@
         block:
         
         - name: Running the container
-          shell: "docker run -itd -p 8000:80 test --name FirstProject "
+          shell: "docker run -itd -p 8000:80 --name FirstProject test"
           register: run_container
              
         - name: Running the container
