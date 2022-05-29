@@ -17,8 +17,17 @@
                  yum-config-manager \
                  --add-repo \
                  https://download.docker.com/linux/centos/docker-ce.repo
+        register: download
+        
+      - debug: 
+         var: download.stdout_lines
+         
       - name: Install Docker Engine
         shell: "yum install -y docker-ce docker-ce-cli containerd.io"
+        register: installing
+      
+      - debug:
+          var: installing.stdout_lines
         
       - name: Cloning the repo
         shell: "cd /home/stuti && git clone https://github.com/sparsh27/projCert.git"
