@@ -1,5 +1,5 @@
 pipeline {
-   node("slave-01") {
+   agent { node { label 'slave-01' } } {
       stages {
         stage('Installing Puppet Agent') {
             steps {
