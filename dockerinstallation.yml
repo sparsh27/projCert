@@ -34,7 +34,7 @@
           register: run_container
           
         - debug:
-            var: "{{ run_container }}.stdout_lines"
+            var: run_container.stdout_lines
              
         - name: Running the container
           shell: "docker ps -f status=running"
@@ -44,7 +44,7 @@
             var: run_container.stdout[0]
             
         - debug:
-            var: "{{ run_container }}.stdout_lines['NAMES']"
+            var: run_container.stdout_lines['NAMES']
           
 #         - name: Verifying whether container is running or not
 #           fail:
