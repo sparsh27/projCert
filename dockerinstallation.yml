@@ -32,16 +32,12 @@
         - name: Running the container
           shell: "docker run -itd -p 8000:80 test"
           register: run_container
-          
-        - debug:
-            var: "{{ run_container }}.stdout"
-          
-        - debug:
-             var: "{{ run_container }}.stdout"
              
-        
+        - name: Running the container
+          shell: "docker ps -f status=running"
+          register: run_container1
           
         - name: Verifying whether container is running or not
           fail:
             msg: Docker container didn't ran successfully
-          when: 
+          when: "{{ run_container }} == {{ run_container1 }}"
