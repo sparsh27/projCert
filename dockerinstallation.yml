@@ -6,10 +6,10 @@
     tasks:
       
       - name: Installing puppet agent
-        shell: "sudo yum install puppet-agent"
+        shell: "sudo yum install puppet"
         
       - name: Configure Puppet Agent
-        shell: "source /etc/profile.d/puppet-agent.sh && export PATH=/opt/puppetlabs/bin:$PATH"
+        shell: "source /etc/profile.d/puppet.sh && export PATH=/opt/puppetlabs/bin:$PATH"
          
       - name: Set up the repository
         shell: | 
